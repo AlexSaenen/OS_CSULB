@@ -12,7 +12,7 @@ int   *Memory::allocate(int size) {
     return 0;
   }
 
-  int *allocatedBlocks = new int(size);
+  int *allocatedBlocks = new int[size];
   int allocatedNumber = 0;
 
   for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
