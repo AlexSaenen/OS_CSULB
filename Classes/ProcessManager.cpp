@@ -24,7 +24,12 @@ void  ProcessManager::kill(PCB *process) {
 
 void  ProcessManager::track(PCB *process) {
   PCB *node = this->tail();
-  node->next = process;
+
+  if (node) {
+    node->next = process;
+  } else {
+    node = process;
+  }
 }
 
 void  ProcessManager::displayPageTable(PCB *process) const {
