@@ -14,6 +14,7 @@ Menu::Menu() {
 
 Menu::~Menu() {
   for (int index = 0; index < 4; index++) {
+    cout << "delete Menu" << endl;
     delete _interruptVector[index];
   }
 }

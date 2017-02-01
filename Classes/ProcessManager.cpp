@@ -17,6 +17,7 @@ void  ProcessManager::kill(PCB *process) {
   // verify that it isn't a node that is tracked, else remove it
   // then free process
   process->next = 0;
+  cout << "delete process" << endl;
   delete process->pageTable;
   delete process;
 }
