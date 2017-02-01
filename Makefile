@@ -37,6 +37,10 @@ re: fclean all
 build:
 	docker build -t linux_program .
 
+destroy:
+	docker rm -f MemoryTester
+	docker rmi -f linux_program
+
 run:
 	docker run -d --name MemoryTester -t linux_program bash
 

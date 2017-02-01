@@ -1,3 +1,5 @@
-FROM alpine:3.5
+FROM debian:jessie-slim
 
-RUN apk add --no-cache gcc g++ musl-dev valgrind bash git make
+RUN apt-get update
+RUN apt-get upgrade
+RUN apt-get install -y gcc-4.9 g++-4.9 make valgrind
