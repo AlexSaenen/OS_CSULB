@@ -19,9 +19,9 @@ CXXFLAGS = -Werror -W -Wextra -Wall -g3
 
 RM = rm -f
 
-all: build
+all: compile
 
-build: $(NAME)
+compile: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(OBJ) -o $(NAME)
