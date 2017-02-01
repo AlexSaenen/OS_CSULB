@@ -1,6 +1,3 @@
-#include <cstring>
-using namespace std;
-
 #include "../Definitions/Application.hh"
 
 Application *app = 0;
