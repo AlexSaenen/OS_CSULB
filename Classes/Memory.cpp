@@ -24,6 +24,7 @@ int   *Memory::allocate(int size) {
     }
   }
 
+  delete allocatedBlocks;
   cout << "alloc " << allocatedBlocks << endl;
   return allocatedBlocks;
 }

@@ -12,7 +12,6 @@ void Initiate::handle() const {
   PCB *process = Self.processes.spawn();
   int memoryBlocksRequired = (rand() % 20) + 1;
   int *allocatedBlocks = Self.memory.allocate(memoryBlocksRequired);
-  delete allocatedBlocks;
 
   if (allocatedBlocks == 0) {
     Self.processes.kill(process);
