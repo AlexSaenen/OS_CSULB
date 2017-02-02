@@ -1,7 +1,11 @@
 #include "../Definitions/ProcessManager.hh"
 
 ProcessManager::ProcessManager() : _pidCounter(0), _readQueue(0) {}
-ProcessManager::~ProcessManager() {}
+ProcessManager::~ProcessManager() {
+  while (this->_readQueue) {
+    this->kill(this->_readQueue, true);
+  }
+}
 
 PCB   *ProcessManager::spawn() {
   PCB *process = new PCB;
@@ -11,24 +15,43 @@ PCB   *ProcessManager::spawn() {
   return process;
 }
 
-void  ProcessManager::kill(PCB *process) {
-  // first verify that no pageTable exist
-  // else free memory blocks stored in page table
-  // verify that it isn't a node that is tracked, else remove it
-  // then free process
+void  ProcessManager::kill(PCB *process, bool isTracked) {
+  if (process == 0) {
+    return ;
+  }
+
+  if (isTracked) {
+    this->untrack(process);
+  }
+
   process->next = 0;
-  cout << "delete process" << endl;
   delete process->pageTable;
   delete process;
 }
 
 void  ProcessManager::track(PCB *process) {
-  PCB *node = this->tail();
+  PCB *node = this->last();
 
   if (node) {
     node->next = process;
   } else {
     node = process;
+  }
+}
+
+void  ProcessManager::untrack(PCB *process) {
+  PCB *node = Self.processes.first();
+
+  if (node == process) {
+    node = process->next;
+  } else {
+    while (node->next != 0 && node->next != process) {
+      node = node->next;
+    }
+
+    if (node->next) {
+      node->next = process->next;
+    }
   }
 }
 
@@ -45,7 +68,7 @@ void  ProcessManager::displayPageTable(PCB *process) const {
   cout << endl;
 }
 
-PCB   *ProcessManager::tail() const {
+PCB   *ProcessManager::last() const {
   if (this->_readQueue == 0) {
     return this->_readQueue;
   }
@@ -58,6 +81,6 @@ PCB   *ProcessManager::tail() const {
   return iterator;
 }
 
-PCB   *ProcessManager::head() const {
+PCB   *ProcessManager::first() const {
   return this->_readQueue;
 }

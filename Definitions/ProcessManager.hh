@@ -17,10 +17,11 @@ public:
 
 public:
   PCB *spawn(void);
-  void kill(PCB *process);
+  void kill(PCB *process, bool isTracked = false);
   void track(PCB *process);
-  PCB *tail(void) const;
-  PCB *head(void) const;
+  void untrack(PCB *process);
+  PCB *last(void) const;
+  PCB *first(void) const;
   void displayPageTable(PCB *process) const;
 
 };

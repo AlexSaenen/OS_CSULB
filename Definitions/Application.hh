@@ -10,7 +10,7 @@ private:
   Menu _menu;
 
 public:
-  ProcessManager processManager;
+  ProcessManager processes;
   Memory memory;
 
 public:
