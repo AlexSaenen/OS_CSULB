@@ -40,7 +40,7 @@ Terminate::~Terminate() {}
 void Terminate::handle() const {
   cout << "Select the pid of a process to terminate: ";
 
-  string input = 0;
+  string input;
   cin >> input;
 
   try {
