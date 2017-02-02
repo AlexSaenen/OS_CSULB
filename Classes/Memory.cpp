@@ -13,7 +13,7 @@ int   *Memory::allocate(int size) {
   }
 
   int *allocatedBlocks = new int[size];
-  int allocatedNumber = 0;
+  // int allocatedNumber = 0;
 
   // for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
   //   if (_mbt.blocks[block] == FREE) {
