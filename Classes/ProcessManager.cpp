@@ -2,9 +2,7 @@
 
 ProcessManager::ProcessManager() : _pidCounter(0), _readQueue(0) {}
 ProcessManager::~ProcessManager() {
-  cout << "Destructor" << endl;
   while (this->_readQueue) {
-    cout << "Kill next process" << endl;
     this->kill(this->_readQueue, true);
   }
 }
@@ -23,12 +21,11 @@ void  ProcessManager::kill(PCB *process, bool isTracked) {
   }
 
   if (isTracked) {
-    cout << "Untrack" << endl;
     this->untrack(process);
   }
 
-  cout << "Deleting resources" << endl;
   process->next = 0;
+  cout << process->pageTable << " is deleted" << endl;
   delete process->pageTable;
   delete process;
 }
@@ -47,7 +44,6 @@ void  ProcessManager::untrack(PCB *process) {
   PCB *node = this->first();
 
   if (node == process) {
-    cout << "This is readqueue" << endl;
     this->_readQueue = process->next;
   } else {
     while (node->next != 0 && node->next != process) {
