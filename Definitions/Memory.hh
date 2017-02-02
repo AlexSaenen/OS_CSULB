@@ -21,5 +21,6 @@ public:
 public:
   int *allocate(int size);
   void free(int *blocks);
+  void displayMemoryBlockTable() const;
 
 };

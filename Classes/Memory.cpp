@@ -34,3 +34,21 @@ void  Memory::free(int *blocks) {
 
   // End free function
 }
+
+void  Memory::displayMemoryBlockTable() const {
+  cout << "Memory Block Table" << endl;
+
+  int displayedBlockNumber = 0;
+
+  while (displayedBlockNumber < MEMORY_SIZE) {
+    int lineLimit = displayedBlockNumber + 8;
+    cout << "blocks (" << displayedBlockNumber << "-" << lineLimit << ")";
+
+    while (displayedBlockNumber < lineLimit) {
+      cout << "\t" << (_mbt.blocks[displayedBlockNumber] ? "free" : "allocated");
+      displayedBlockNumber++;
+    }
+
+    cout << endl;
+  }
+}

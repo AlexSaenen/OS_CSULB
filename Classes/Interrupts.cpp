@@ -22,6 +22,7 @@ void Initiate::handle() const {
     process->pageTable->blocks = allocatedBlocks;
     Self.processManager.track(process);
     Self.processManager.displayPageTable(process);
+    Self.memory.displayMemoryBlockTable();
   }
 }
 
