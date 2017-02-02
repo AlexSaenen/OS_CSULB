@@ -13,19 +13,17 @@ int   *Memory::allocate(int size) {
   }
 
   int *allocatedBlocks = new int[size];
-  // int allocatedNumber = 0;
+  int allocatedNumber = 0;
 
-  // for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
-  //   if (_mbt.blocks[block] == FREE) {
-  //     _mbt.blocks[block] = ALLOCATED;
-  //     allocatedBlocks[allocatedNumber] = block;
-  //     allocatedNumber++;
-  //     _mbt.available--;
-  //   }
-  // }
+  for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
+    if (_mbt.blocks[block] == FREE) {
+      _mbt.blocks[block] = ALLOCATED;
+      allocatedBlocks[allocatedNumber] = block;
+      allocatedNumber++;
+      _mbt.available--;
+    }
+  }
 
-  delete allocatedBlocks;
-  cout << "alloc " << allocatedBlocks << endl;
   return allocatedBlocks;
 }
 
