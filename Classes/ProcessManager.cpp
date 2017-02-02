@@ -27,6 +27,7 @@ void  ProcessManager::kill(PCB *process, bool isTracked) {
   process->next = 0;
   if (process->pageTable) {
     delete[] process->pageTable->blocks;
+    delete process->pageTable;
   }
 
   delete process;
@@ -62,11 +63,11 @@ void  ProcessManager::displayPageTable(PCB *process) const {
   cout << "Process (pid=" << process->pid << ")" << endl;
   cout << "\t";
 
-  // PageTable *pageTable = process->pageTable;
+  PageTable *pageTable = process->pageTable;
 
-  // for (int index = 0; index < pageTable->numberOfBlocks; index++) {
-  //   cout << pageTable->blocks[index] << " ";
-  // }
+  for (int index = 0; index < pageTable->numberOfBlocks; index++) {
+    cout << pageTable->blocks[index] << " ";
+  }
 
   cout << endl;
 }

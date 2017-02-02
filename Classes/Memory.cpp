@@ -36,19 +36,19 @@ void  Memory::free(int *blocks) {
 }
 
 void  Memory::displayMemoryBlockTable() const {
-  // cout << "Memory Block Table" << endl;
-  //
-  // int displayedBlockNumber = 0;
-  //
-  // while (displayedBlockNumber < MEMORY_SIZE) {
-  //   int lineLimit = displayedBlockNumber + 8;
-  //   cout << setw(15) << "blocks (" << displayedBlockNumber << "-" << lineLimit - 1 << ")";
-  //
-  //   while (displayedBlockNumber < lineLimit) {
-  //     cout << "\t" << (_mbt.blocks[displayedBlockNumber] ? "free" : "used");
-  //     displayedBlockNumber++;
-  //   }
-  //
-  //   cout << endl;
-  // }
+  cout << "Memory Block Table" << endl;
+
+  int displayedBlockNumber = 0;
+
+  while (displayedBlockNumber < MEMORY_SIZE) {
+    int lineLimit = displayedBlockNumber + 8;
+    cout << setw(15) << "blocks (" << displayedBlockNumber << "-" << lineLimit - 1 << ")";
+
+    while (displayedBlockNumber < lineLimit) {
+      cout << "\t" << (_mbt.blocks[displayedBlockNumber] ? "free" : "used");
+      displayedBlockNumber++;
+    }
+
+    cout << endl;
+  }
 }
