@@ -39,7 +39,7 @@ void  ProcessManager::track(PCB *process) {
   if (node) {
     node->next = process;
   } else {
-    node = process;
+    this->_readQueue = process;
   }
 }
 
