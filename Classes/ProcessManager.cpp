@@ -25,8 +25,10 @@ void  ProcessManager::kill(PCB *process, bool isTracked) {
   }
 
   process->next = 0;
-  cout << process->pageTable << " is deleted" << endl;
-  delete process->pageTable;
+  if (process->pageTable) {
+    delete process->pageTable->block;
+  }
+
   delete process;
 }
 

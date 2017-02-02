@@ -13,7 +13,6 @@ int   *Memory::allocate(int size) {
   }
 
   int *allocatedBlocks = new int[size];
-  cout << allocatedBlocks << " is allocated" << endl;
   int allocatedNumber = 0;
 
   for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
