@@ -23,7 +23,7 @@ void  ProcessManager::kill(PCB *process, bool isTracked) {
   }
 
   if (isTracked) {
-    cout << 'Untrack' << endl;
+    cout << "Untrack" << endl;
     this->untrack(process);
   }
 
