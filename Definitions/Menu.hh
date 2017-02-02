@@ -8,7 +8,7 @@ using namespace std;
 class   Menu {
 
 private:
-  Handler* _interruptVector[5];
+  Handler* _interruptVector[4];
   bool     _isRunning;
 
 public:

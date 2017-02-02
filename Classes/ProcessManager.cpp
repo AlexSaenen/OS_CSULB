@@ -2,8 +2,8 @@
 
 ProcessManager::ProcessManager() : _pidCounter(0), _readQueue(0) {}
 ProcessManager::~ProcessManager() {
-  while (this->_readQueue) {
-    this->kill(this->_readQueue, true);
+  while (this->last()) {
+    this->kill(this->last(), true);
   }
 }
 
@@ -87,4 +87,14 @@ PCB   *ProcessManager::last() const {
 
 PCB   *ProcessManager::first() const {
   return this->_readQueue;
+}
+
+PCB   *ProcessManager::find(int pid) const {
+  PCB *process = this->first();
+
+  while (process && process->pid != pid) {
+    process = process->next;
+  }
+
+  return process;
 }

@@ -22,6 +22,7 @@ public:
   void untrack(PCB *process);
   PCB *last(void) const;
   PCB *first(void) const;
+  PCB *find(int pid) const;
   void displayPageTable(PCB *process) const;
 
 };

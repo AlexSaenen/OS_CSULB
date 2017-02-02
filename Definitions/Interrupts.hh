@@ -22,6 +22,17 @@ public:
 
 };
 
+class Terminate : public Handler {
+
+public:
+  Terminate();
+  virtual ~Terminate();
+
+public:
+  virtual void handle(void) const;
+
+};
+
 class Exit : public Handler {
 
 public:
