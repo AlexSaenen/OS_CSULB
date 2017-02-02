@@ -5,7 +5,6 @@ CLASSES = Classes/
 SRC = main.cpp \
 			$(CLASSES)Application.cpp \
 			$(CLASSES)Menu.cpp \
-			$(CLASSES)Handler.cpp \
 			$(CLASSES)Interrupts.cpp \
 			$(CLASSES)ProcessManager.cpp \
 			$(CLASSES)Memory.cpp

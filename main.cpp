@@ -1,8 +1,8 @@
 #include "Definitions/Application.hh"
 
 int   main(void) {
-  Application MemoryManagementSystem;
+  Application MemoryManagementSystem; // Create a Main Application instance
 
-  MemoryManagementSystem.run();
+  MemoryManagementSystem.run(); // Run the Main Program flow
   return 0;
 }

@@ -4,6 +4,7 @@
 #include "../Definitions/Interrupts.hh"
 
 Menu::Menu() {
+  // Map Action Handlers that will respond to the selection from the Menu
   _interruptVector[0] = new Initiate();
   _interruptVector[1] = new Print();
   _interruptVector[2] = new Terminate();
@@ -12,6 +13,7 @@ Menu::Menu() {
 }
 
 Menu::~Menu() {
+  // Free all the Handlers
   for (int index = 0; index < 4; index++) {
     delete _interruptVector[index];
   }
@@ -22,18 +24,24 @@ void Menu::run() {
 
   _isRunning = true;
 
+  // As long as the Menu state permits it to run, display menu and wait
+  // for a selection and handle it
   while (_isRunning) {
+    // Display Menu
     this->displayMain();
     currentSelection = this->getSelection();
     if (currentSelection < 1 || currentSelection > 4) {
+      // Invalid selection
       this->displayError();
     } else {
+      // Trigger Handler mapped to the selected action
       _interruptVector[currentSelection - 1]->handle();
     }
   }
 }
 
 void Menu::quit() {
+  // Invalidate the Menu state so the programs stops in the next loop
   _isRunning = false;
 }
 

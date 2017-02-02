@@ -5,6 +5,7 @@ using namespace std;
 
 #include "Handler.hh"
 
+// Class that helps us handle the Menu selection flow
 class   Menu {
 
 private:

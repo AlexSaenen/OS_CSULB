@@ -5,6 +5,8 @@ using namespace std;
 
 #include "../Definitions/ProcessControlBlock.hh"
 
+// Class that offers routines to handle a process life cycle more easily
+// it also handles all the processes running in our System
 class   ProcessManager {
 
 private:

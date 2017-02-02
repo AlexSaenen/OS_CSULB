@@ -4,6 +4,7 @@
 #include "../Definitions/ProcessManager.hh"
 #include "../Definitions/Memory.hh"
 
+// Main Program Class, handles the program execution flow and can instantiate a new process
 class   Application {
 
 private:
@@ -24,6 +25,8 @@ public:
 
 };
 
+// Here we make available the singleton instance of the Main Application
 extern Application *app;
 
+// And rename it as Self
 #define Self (*app)

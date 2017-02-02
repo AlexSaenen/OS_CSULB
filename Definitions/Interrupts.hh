@@ -1,5 +1,6 @@
-#include "Handler.hh"
+#include "Handler.hpp"
 
+// Initiates a Process
 class Initiate : public Handler {
 
 public:
@@ -11,6 +12,7 @@ public:
 
 };
 
+// Prints all runnning Processes
 class Print : public Handler {
 
 public:
@@ -22,6 +24,7 @@ public:
 
 };
 
+// Terminates a Process
 class Terminate : public Handler {
 
 public:
@@ -33,6 +36,7 @@ public:
 
 };
 
+// Exits the program
 class Exit : public Handler {
 
 public:
