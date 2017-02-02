@@ -29,7 +29,7 @@ int   *Memory::allocate(int size) {
 }
 
 void  Memory::free(PageTable *pageTable) {
-  if (blocks == 0) {
+  if (pageTable->blocks == 0) {
     return ;
   }
 
