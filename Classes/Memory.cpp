@@ -38,6 +38,7 @@ void  Memory::free(PageTable *pageTable) {
 
     if (blockId > 0 && blockId < MEMORY_SIZE) {
       _mbt.blocks[blockId] = FREE;
+      _mbt.available++;
     }
   }
 
