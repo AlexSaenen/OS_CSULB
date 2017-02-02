@@ -46,7 +46,7 @@ void Terminate::handle() const {
 
       Self.processes.kill(process, true);
     } else {
-      cout << "Cannot kill process with pid=" pid << ", no such process" << endl;
+      cout << "Cannot kill process with pid=" << pid << ", no such process" << endl;
     }
   }
 }
