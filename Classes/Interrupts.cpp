@@ -41,7 +41,7 @@ void Terminate::handle() const {
     PCB *process = Self.processes.find(pid);
     if (process) {
       if (process->pageTable) {
-        Self.memory.free(process->pageTable->blocks);
+        Self.memory.free(process->pageTable);
       }
 
       Self.processes.kill(process, true);

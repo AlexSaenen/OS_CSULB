@@ -21,7 +21,7 @@ public:
 
 public:
   int *allocate(int size);
-  void free(int *blocks);
+  void free(PageTable *pageTable);
   void displayMemoryBlockTable() const;
 
 };

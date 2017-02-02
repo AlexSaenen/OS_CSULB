@@ -28,12 +28,20 @@ int   *Memory::allocate(int size) {
   return allocatedBlocks;
 }
 
-void  Memory::free(int *blocks) {
+void  Memory::free(PageTable *pageTable) {
   if (blocks == 0) {
     return ;
   }
 
-  // End free function
+  for (int index = 0; index < pageTable->numberOfBlocks; index++) {
+    int blockId = pageTable->blocks[index];
+
+    if (blockId > 0 && blockId < MEMORY_SIZE) {
+      _mbt.blocks[blockId] = FREE;
+    }
+  }
+
+  this->displayMemoryBlockTable();
 }
 
 void  Memory::displayMemoryBlockTable() const {
