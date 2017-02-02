@@ -42,10 +42,10 @@ void  Memory::displayMemoryBlockTable() const {
 
   while (displayedBlockNumber < MEMORY_SIZE) {
     int lineLimit = displayedBlockNumber + 8;
-    cout << "blocks (" << displayedBlockNumber << "-" << lineLimit << ")";
+    cout << "blocks (" << displayedBlockNumber << "-" << lineLimit << ")\t";
 
     while (displayedBlockNumber < lineLimit) {
-      cout << "\t" << (_mbt.blocks[displayedBlockNumber] ? "free" : "allocated");
+      cout << "\t" << (_mbt.blocks[displayedBlockNumber] ? "free" : "alloc'ed");
       displayedBlockNumber++;
     }
 
