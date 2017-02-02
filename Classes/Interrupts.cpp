@@ -44,7 +44,7 @@ void Terminate::handle() const {
   cin >> input;
 
   try {
-    int pid = stoi(string);
+    int pid = stoi(input);
 
     // Find a process with the given pid
     PCB *process = Self.processes.find(pid);
