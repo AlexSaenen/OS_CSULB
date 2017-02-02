@@ -47,7 +47,8 @@ void  ProcessManager::untrack(PCB *process) {
   PCB *node = this->first();
 
   if (node == process) {
-    node = process->next;
+    cout << "This is readqueue" << endl;
+    this->_readQueue = process->next;
   } else {
     while (node->next != 0 && node->next != process) {
       node = node->next;
