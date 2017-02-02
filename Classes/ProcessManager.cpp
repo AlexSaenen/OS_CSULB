@@ -40,7 +40,7 @@ void  ProcessManager::track(PCB *process) {
 }
 
 void  ProcessManager::untrack(PCB *process) {
-  PCB *node = Self.processes.first();
+  PCB *node = this->first();
 
   if (node == process) {
     node = process->next;
