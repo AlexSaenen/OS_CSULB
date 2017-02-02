@@ -59,7 +59,7 @@ void Terminate::handle() const {
     } else {
       cout << "Cannot kill process with pid=" << pid << ", no such process" << endl;
     }
-  } catch (invalid_argumemt) {
+  } catch (invalid_argument) {
     cout << "Please enter a correct number" << endl;
   }
 }
