@@ -9,6 +9,7 @@ Memory::~Memory() {}
 
 int   *Memory::allocate(int size) {
   if (_mbt.available < size) {
+    cout << "Cannot allocate " << size << " blocks (" << _mbt.available << " available)" << endl;
     return 0;
   }
 

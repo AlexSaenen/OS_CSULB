@@ -15,7 +15,6 @@ void Initiate::handle() const {
 
   if (allocatedBlocks == 0) {
     Self.processes.kill(process);
-    // Should display message and give hand back to menu
   } else {
     process->pageTable = new PageTable;
     process->pageTable->numberOfBlocks = memoryBlocksRequired;
