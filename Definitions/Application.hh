@@ -20,6 +20,7 @@ public:
 public:
   void run();
   void stop();
+  void instantiate(int memoryRequired);
 
 };
 
