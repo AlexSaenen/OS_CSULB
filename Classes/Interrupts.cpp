@@ -20,6 +20,7 @@ void Initiate::handle() const {
     process->pageTable = new PageTable;
     process->pageTable->numberOfBlocks = memoryBlocksRequired;
     process->pageTable->blocks = allocatedBlocks;
+    delete process->pageTable->blocks;
     Self.processes.track(process);
     Self.processes.displayPageTable(process);
     Self.memory.displayMemoryBlockTable();
