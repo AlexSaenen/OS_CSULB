@@ -6,7 +6,7 @@
 // Menu::Menu() : _interruptVector([ Initiate, Print, Terminate, Exit ]) {}
 Menu::Menu() {
   _interruptVector[0] = new Initiate();
-  _interruptVector[1] = new Initiate();
+  _interruptVector[1] = new Print();
   _interruptVector[2] = new Initiate();
   _interruptVector[3] = new Exit();
   _isRunning = false;

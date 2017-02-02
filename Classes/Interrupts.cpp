@@ -25,6 +25,20 @@ void Initiate::handle() const {
   }
 }
 
+
+Print::Print() {}
+Print::~Print() {}
+
+void Print::handle() const {
+  PCB *process = Self.processes.first();
+
+  while (process) {
+    cout << "Process (pid=" << process->pid << ")" << endl;
+    process = process->next;
+  }
+}
+
+
 Exit::Exit() {}
 Exit::~Exit() {}
 
