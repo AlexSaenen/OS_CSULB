@@ -6,6 +6,7 @@
 using namespace std;
 
 #include "../Definitions/MemoryBlockTable.hh"
+#include "../Definitions/PageTable.hh"
 #define MEMORY_SIZE 128
 #define FREE true
 #define ALLOCATED false
