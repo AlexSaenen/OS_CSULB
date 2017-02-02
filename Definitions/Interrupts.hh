@@ -11,6 +11,17 @@ public:
 
 };
 
+class Print : public Handler {
+
+public:
+  Print();
+  virtual ~Print();
+
+public:
+  virtual void handle(void) const;
+
+};
+
 class Exit : public Handler {
 
 public:
