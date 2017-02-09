@@ -11,7 +11,7 @@ class   ProcessManager {
 
 private:
   int   _pidCounter;
-  PCB   *_readQueue;
+  PCB   *_readyQueue;
 
 public:
   ProcessManager();

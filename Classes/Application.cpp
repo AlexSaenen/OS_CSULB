@@ -4,7 +4,7 @@ Application *app = 0;
 
 Application::Application() : _menu() {
   app = this; // Initialize our global singleton instance pointer
-  int *allocatedBlocks = Self.memory.allocate(10); // Allocate 10 blocks for OS
+  int *allocatedBlocks = Self.memory.allocate(OS_SIZE); // Allocate blocks for OS
   delete[] allocatedBlocks; // We don't need to store the Page Table
 }
 
@@ -15,7 +15,7 @@ void Application::run() {
 }
 
 void Application::stop() {
-  _menu.quit(); // Tell the menu to give back control to the Application Class
+  _menu.quit(); // Tell the menu to give back control to the Application instance
 }
 
 // Instantiate a new Process and allocate the required number of memory blocks

@@ -1,6 +1,6 @@
 #include "../Definitions/ProcessManager.hh"
 
-ProcessManager::ProcessManager() : _pidCounter(0), _readQueue(0) {}
+ProcessManager::ProcessManager() : _pidCounter(0), _readyQueue(0) {}
 ProcessManager::~ProcessManager() {
   // Empty the ready queue and kill all processes
   while (this->last()) {
@@ -47,7 +47,7 @@ void  ProcessManager::track(PCB *process) {
     node->next = process;
   } else {
     // The queue is empty
-    this->_readQueue = process;
+    this->_readyQueue = process;
   }
 }
 
@@ -57,9 +57,9 @@ void  ProcessManager::untrack(PCB *process) {
   if (node == process) {
     // The process we want to remove from queue is the first element
     // we extract it and reset the ready queue starting point
-    this->_readQueue = process->next;
+    this->_readyQueue = process->next;
   } else {
-    // Find our the node pointing to our process in the linked list
+    // Find the node pointing to our process in the linked list
     while (node->next != 0 && node->next != process) {
       node = node->next;
     }
@@ -87,11 +87,11 @@ void  ProcessManager::displayPageTable(PCB *process) const {
 
 // Get the last process in the ready queue
 PCB   *ProcessManager::last() const {
-  if (this->_readQueue == 0) {
-    return this->_readQueue;
+  if (this->_readyQueue == 0) {
+    return this->_readyQueue;
   }
 
-  PCB *iterator = this->_readQueue;
+  PCB *iterator = this->_readyQueue;
   while (iterator->next) {
     iterator = iterator->next;
   }
@@ -101,7 +101,7 @@ PCB   *ProcessManager::last() const {
 
 // Get the first process in the ready queue
 PCB   *ProcessManager::first() const {
-  return this->_readQueue;
+  return this->_readyQueue;
 }
 
 // Get the process in the ready queue with the corresponding pid

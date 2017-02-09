@@ -9,7 +9,6 @@ using namespace std;
 #include "../Definitions/PageTable.hh"
 
 // Define a few MACROS to make the code more readable
-#define MEMORY_SIZE 128
 #define FREE true
 #define ALLOCATED false
 
