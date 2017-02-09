@@ -13,7 +13,7 @@ Initiate::~Initiate() {}
 
 void Initiate::handle() const {
   // Generate a random number of required memory blocks
-  int memoryBlocksRequired = (rand() % 20) + 1;
+  int memoryBlocksRequired = (rand() % 8) + 1;
   // Initiate the new process
   Self.instantiate(memoryBlocksRequired);
 }
