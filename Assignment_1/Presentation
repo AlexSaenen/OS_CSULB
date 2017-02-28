@@ -1,0 +1,8 @@
+CECS 326
+Assignment 1
+2-13-2017
+Alexander Saenen
+alexander.saenen@epitech.eu
+
+This is a Cpp implementation of a Memory Management Module, it has a command line menu through which we can initiate new process
+list current running processes, kill a process or exit the program. It also shows the memory usage state after it was altered (process instantiated or killed) 

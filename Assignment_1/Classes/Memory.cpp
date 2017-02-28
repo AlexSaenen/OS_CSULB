@@ -20,7 +20,7 @@ int   *Memory::allocate(int size) {
   int allocatedNumber = 0;
 
   // Mark progressively the free blocks inside MBT as allocated until we gathered required number of blocks
-  for (int block = 0; block < MEMORY_SIZE && allocatedNumber < size; block++) {
+  for (int block = OS_SIZE; block < MEMORY_SIZE && allocatedNumber < size; block++) {
     if (_mbt.blocks[block] == FREE) {
       _mbt.blocks[block] = ALLOCATED;
       allocatedBlocks[allocatedNumber] = block;
