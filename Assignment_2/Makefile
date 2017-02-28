@@ -7,13 +7,16 @@ RECEIVER = receiver
 .RECEIVER = ReceiverClasses/
 
 SRCMASTER = main.cpp \
-			$(.KERNEL)Application.cpp
+			$(.KERNEL)Application.cpp \
+			$(.KERNEL)MessageQueue.cpp
 
 SRCSENDER = $(.SENDER)main.cpp \
-			$(.SENDER)Application.cpp
+			$(.SENDER)Application.cpp \
+			$(.SENDER)MessageQueue.cpp
 
 SRCRECEIVER = $(.RECEIVER)main.cpp \
-			$(.RECEIVER)Application.cpp
+			$(.RECEIVER)Application.cpp \
+			$(.RECEIVER)MessageQueue.cpp
 
 OBJMASTER = $(SRCMASTER:.cpp=.o)
 OBJSENDER = $(SRCSENDER:.cpp=.o)
