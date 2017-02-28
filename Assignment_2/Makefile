@@ -19,7 +19,7 @@ OBJMASTER = $(SRCMASTER:.cpp=.o)
 OBJSENDER = $(SRCSENDER:.cpp=.o)
 OBJRECEIVER = $(SRCRECEIVER:.cpp=.o)
 
-CXX = g++ -std=c++11
+CXX = g++-4.9 -std=c++11
 
 CXXFLAGS = -Werror -W -Wextra -Wall -g3 -IDefinitions
 
