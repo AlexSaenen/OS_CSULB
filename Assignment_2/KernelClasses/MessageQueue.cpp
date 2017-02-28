@@ -1,6 +1,7 @@
 #include <iostream>
 #include "MessageQueue.hh"
 
+using namespace std;
 
 MessageQueue::MessageQueue(const int identifier, const bool create) {
   int flags = (create ? IPC_CREAT : 0);
