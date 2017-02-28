@@ -12,11 +12,11 @@ SRCMASTER = main.cpp \
 
 SRCSENDER = $(.SENDER)main.cpp \
 			$(.SENDER)Application.cpp \
-			$(.SENDER)MessageQueue.cpp
+			$(.KERNEL)MessageQueue.cpp
 
 SRCRECEIVER = $(.RECEIVER)main.cpp \
 			$(.RECEIVER)Application.cpp \
-			$(.RECEIVER)MessageQueue.cpp
+			$(.KERNEL)MessageQueue.cpp
 
 OBJMASTER = $(SRCMASTER:.cpp=.o)
 OBJSENDER = $(SRCSENDER:.cpp=.o)

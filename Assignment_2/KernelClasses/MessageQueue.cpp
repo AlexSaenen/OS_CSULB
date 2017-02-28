@@ -1,4 +1,4 @@
-#include "MessageManager.hh"
+#include "MessageQueue.hh"
 
 
 MessageQueue::MessageQueue(const int identifier, const bool create) {
