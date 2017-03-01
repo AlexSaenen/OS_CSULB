@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <cstring>
 #include <sys/wait.h>
 #include "Child.hh"
 
@@ -11,8 +12,11 @@ Child::Child(string binaryName) {
 
   if (this->isParent() == false) {
     string pathToBinary("./" + binaryName);
-    char *arguments[] = { pathToBinary.c_str(), 0 };
-    execv(pathToBinary.c_str(), arguments);
+    char *pathArgument = new char[pathToBinary.length() + 1];
+    strcpy(pathArgument, pathToBinary.c_str());
+    char *arguments[] = { pathArgument, 0 };
+    execv(pathArgument, arguments);
+    delete [] pathArgument;
     throw "Failed to exec";
   }
 }
