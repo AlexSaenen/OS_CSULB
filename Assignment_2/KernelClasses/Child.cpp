@@ -11,7 +11,8 @@ Child::Child(string binaryName) {
 
   if (this->isParent() == false) {
     string pathToBinary("./" + binaryName);
-    execv(pathToBinary.c_str(), { pathToBinary.c_str(), 0 });
+    char *arguments[] = { pathToBinary.c_str(), 0 };
+    execv(pathToBinary.c_str(), arguments);
     throw "Failed to exec";
   }
 }
