@@ -29,6 +29,7 @@ int main(int argc, char *argv[]) {
 
   cout << "I'm the receiver (PID: " << getpid() << "), and got a new message:" << endl;
   cout << "text " << newMsg.mtext << " end text" << endl;
+  cout << "wtf is going onnnnnnnn" << endl;
 
   delete [] newMsg.mtext;
 
