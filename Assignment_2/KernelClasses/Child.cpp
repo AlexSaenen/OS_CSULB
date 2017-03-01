@@ -12,7 +12,7 @@ Child::Child(string binaryName) {
   if (this->isParent() == false) {
     string pathToBinary("./" + binaryName);
 
-    char arguments[2][7] = {
+    const char arguments[2][7] = {
       pathToBinary.c_str(),
       0,
     };
