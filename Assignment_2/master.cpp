@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int createMessageQueue(msqid_ds &queue) {
+int createMessageQueue(msqid_ds *queue) {
   int identifier = msgget(IPC_PRIVATE, IPC_CREAT);
 
   if (identifier == -1) {
@@ -20,7 +20,7 @@ int createMessageQueue(msqid_ds &queue) {
   return identifier;
 }
 
-void deleteMessageQueue(int identifier, msqid_ds &queue) {
+void deleteMessageQueue(int identifier, msqid_ds *queue) {
   msgctl(identifier, IPC_RMID, queue);
 }
 
