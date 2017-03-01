@@ -25,7 +25,7 @@ void deleteMessageQueue(int identifier, msqid_ds *queue) {
   msgctl(identifier, IPC_RMID, queue);
 }
 
-int instantiateChild(string binaryName) {
+int instantiateChild(string binaryName, int messageID) {
   int pid = fork();
 
   if (pid == -1) {
@@ -36,7 +36,7 @@ int instantiateChild(string binaryName) {
     string pathToBinary("./" + binaryName);
     char *pathArgument = new char[pathToBinary.length() + 1];
     strcpy(pathArgument, pathToBinary.c_str());
-    char *arguments[] = { pathArgument, 0 };
+    char *arguments[] = { pathArgument, atoi(messageID), 0 };
     execv(pathArgument, arguments);
     throw "Failed to exec";
   }
@@ -60,10 +60,8 @@ int main() {
     return 1;
   }
 
-  cout << messageID << endl;
-
-  int senderPID = instantiateChild("sender");
-  int receiverPID = instantiateChild("receiver");
+  int senderPID = instantiateChild("sender", messageID);
+  int receiverPID = instantiateChild("receiver", messageID);
   waitOnChild(senderPID);
   waitOnChild(receiverPID);
 
