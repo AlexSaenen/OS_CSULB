@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
@@ -39,6 +40,8 @@ int instantiateChild(string binaryName) {
     execv(pathArgument, arguments);
     throw "Failed to exec";
   }
+
+  return pid;
 }
 
 void waitOnChild(int childPID) {
