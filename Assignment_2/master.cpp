@@ -55,8 +55,8 @@ int main() {
     return 1;
   }
 
-  int senderPID = instantiateChild('sender');
-  int receiverPID = instantiateChild('receiver');
+  int senderPID = instantiateChild("sender");
+  int receiverPID = instantiateChild("receiver");
   waitOnChild(senderPID);
   waitOnChild(receiverPID);
 
