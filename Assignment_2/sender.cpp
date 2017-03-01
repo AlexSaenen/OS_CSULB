@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
 
 #define REGULAR 1
 
