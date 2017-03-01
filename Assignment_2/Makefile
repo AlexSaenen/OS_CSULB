@@ -2,24 +2,9 @@ MASTER = master
 SENDER = sender
 RECEIVER = receiver
 
-.KERNEL = KernelClasses/
-.SENDER = SenderClasses/
-.RECEIVER = ReceiverClasses/
-
-SRCMASTER = main.cpp \
-			$(.KERNEL)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp \
-			$(.KERNEL)Child.cpp
-
-SRCSENDER = $(.SENDER)main.cpp \
-			$(.SENDER)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp \
-			$(.KERNEL)Child.cpp
-
-SRCRECEIVER = $(.RECEIVER)main.cpp \
-			$(.RECEIVER)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp \
-			$(.KERNEL)Child.cpp
+SRCMASTER = master.cpp
+SRCSENDER = sender.cpp
+SRCRECEIVER = receiver.cpp
 
 OBJMASTER = $(SRCMASTER:.cpp=.o)
 OBJSENDER = $(SRCSENDER:.cpp=.o)
@@ -50,6 +35,6 @@ clean:
 fclean: clean
 	$(RM) $(MASTER)
 	$(RM) $(SENDER)
-	$(RM) $(RECEIVE)
+	$(RM) $(RECEIVER)
 
 re: fclean all
