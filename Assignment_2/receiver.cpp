@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
   msgrcv(messageQueueID, &newMsg, sizeof(newMsg.mtext), 0, 0);
 
   cout << "I'm the receiver (PID: " << getpid() << "), and got a new message:" << endl;
-  cout << newMsg.mtext << endl;
+  printf("%s\n", newMsg.mtext);
 
   return 0;
 }
