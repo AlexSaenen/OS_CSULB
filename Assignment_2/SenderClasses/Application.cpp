@@ -9,4 +9,5 @@ Application::Application() : messages(IPC_PRIVATE)  {
 Application::~Application() {}
 
 void Application::execute() {
+  while (true);
 }
