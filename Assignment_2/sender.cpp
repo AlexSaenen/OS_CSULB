@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
   cout << "Hi, I'm the sender (PID: " << getpid() << "), ";
   cout << "Let me send something : ";
-  cin >> input;
+  cin.getline(input);
 
   message newMsg;
   newMsg.mtype = REGULAR;
