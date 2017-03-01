@@ -6,7 +6,7 @@ private:
   int _pid;
 
 public:
-  Child();
+  Child(string binaryName);
   ~Child();
 
 private:
