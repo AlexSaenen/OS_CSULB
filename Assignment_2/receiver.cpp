@@ -28,8 +28,9 @@ int main(int argc, char *argv[]) {
   int ret = msgrcv(messageQueueID, &newMsg, MAX_MESSAGE_SIZE, REGULAR, MSG_NOERROR);
 
   cout << ret << endl;
-  cout << "hello" << endl;
+  cout << "working ?" << endl;
   cout << newMsg.mtype << endl;
+  cout << newMsg.mtext[0] << endl;
 
   newMsg.mtext[ret] = 0;
 
