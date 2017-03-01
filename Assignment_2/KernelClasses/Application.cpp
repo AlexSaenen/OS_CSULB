@@ -8,8 +8,7 @@ Application::Application() : messages(IPC_PRIVATE, true) {
 
 Application::~Application() {}
 
-void Application::run() {
-}
-
-void Application::stop() {
+void Application::execute() {
+  Child sender('sender');
+  Child receiver('receiver');
 }

@@ -8,8 +8,5 @@ Application::Application() : messages(IPC_PRIVATE) {
 
 Application::~Application() {}
 
-void Application::run() {
-}
-
-void Application::stop() {
+void Application::execute() {
 }

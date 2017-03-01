@@ -8,15 +8,18 @@ RECEIVER = receiver
 
 SRCMASTER = main.cpp \
 			$(.KERNEL)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp
+			$(.KERNEL)MessageQueue.cpp \
+			$(.KERNEL)Child.cpp
 
 SRCSENDER = $(.SENDER)main.cpp \
 			$(.SENDER)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp
+			$(.KERNEL)MessageQueue.cpp \
+			$(.KERNEL)Child.cpp
 
 SRCRECEIVER = $(.RECEIVER)main.cpp \
 			$(.RECEIVER)Application.cpp \
-			$(.KERNEL)MessageQueue.cpp
+			$(.KERNEL)MessageQueue.cpp \
+			$(.KERNEL)Child.cpp
 
 OBJMASTER = $(SRCMASTER:.cpp=.o)
 OBJSENDER = $(SRCSENDER:.cpp=.o)

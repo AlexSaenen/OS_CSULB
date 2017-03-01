@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MessageQueue.hh"
+#include "Child.hh"
 
 // Main Program Class, handles the program execution flow
 class   Application {
@@ -13,8 +14,7 @@ public:
   ~Application();
 
 public:
-  void run();
-  void stop();
+  void execute();
 
 };
 
