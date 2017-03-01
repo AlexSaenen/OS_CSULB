@@ -1,9 +1,6 @@
-#include <string>
 #include <unistd.h>
 #include <sys/wait.h>
 #include "Child.hh"
-
-using namespace std;
 
 Child::Child(string binaryName) {
   _pid = fork();
