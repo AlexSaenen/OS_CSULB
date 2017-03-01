@@ -1,8 +1,13 @@
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 
 int main() {
-  cout << "Hi, I'm the sender" << endl;
+  string input;
+
+  cout << "Hi, I'm the sender (PID: " << getpid() << "), ";
+  cout << "Let me send something : ";
+  cin >> input;
   return 0;
 }
