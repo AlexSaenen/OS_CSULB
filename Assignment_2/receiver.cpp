@@ -7,12 +7,11 @@
 
 using namespace std;
 
-#define REGULAR 1
-#define MAX_MESSAGE_SIZE 255
+#define MSGSIZE 255
 
 typedef struct message {
   long mtype;
-  char *mtext;
+  char mtext[MSGSIZE];
 } message;
 
 int main(int argc, char *argv[]) {
@@ -23,9 +22,8 @@ int main(int argc, char *argv[]) {
   int messageQueueID = atoi(argv[1]);
 
   message newMsg;
-  // newMsg.mtext = new char [MAX_MESSAGE_SIZE + 1];
 
-  int ret = msgrcv(messageQueueID, &newMsg, MAX_MESSAGE_SIZE, REGULAR, MSG_NOERROR);
+  int ret = msgrcv(messageQueueID, &newMsg, sizeof(newMsg.mtext), 0, 0);
 
   cout << ret << endl;
   cout << "working ?" << endl;

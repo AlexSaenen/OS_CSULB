@@ -6,12 +6,13 @@
 #include <sys/msg.h>
 
 #define REGULAR 1
+#define MSGSIZE 255
 
 using namespace std;
 
 typedef struct message {
   long mtype;
-  char *mtext;
+  char mtext[MSGSIZE];
 } message;
 
 int main(int argc, char *argv[]) {
@@ -28,12 +29,9 @@ int main(int argc, char *argv[]) {
 
   message newMsg;
   newMsg.mtype = REGULAR;
-  newMsg.mtext = new char [input.length() + 1];
-  strcpy(newMsg.mtext, input.c_str());
+  strncpy(newMsg.mtext, input.c_str(), MSGSIZE);
 
-  msgsnd(messageQueueID, &newMsg, input.length(), 0);
-
-  delete [] newMsg.mtext;
+  msgsnd(messageQueueID, &newMsg, sizeof(newMsg.mtext), 0);
 
   return 0;
 }

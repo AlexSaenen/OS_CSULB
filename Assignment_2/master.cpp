@@ -10,7 +10,7 @@
 using namespace std;
 
 int createMessageQueue(msqid_ds *queue) {
-  int identifier = msgget((key_t)4242, 0666 | IPC_CREAT);
+  int identifier = msgget((key_t)4242, 0600 | IPC_CREAT);
 
   if (identifier == -1) {
     cout << "Failed to get the message queue for identifier (" << identifier << ")" << endl;
@@ -64,8 +64,8 @@ int main() {
 
   int senderPID = instantiateChild("sender", to_string(messageID));
   int receiverPID = instantiateChild("receiver", to_string(messageID));
-  waitOnChild(senderPID);
   waitOnChild(receiverPID);
+  waitOnChild(senderPID);
 
   deleteMessageQueue(messageID, &queue);
   return 0;
