@@ -5,6 +5,8 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 
+using namespace std;
+
 int createMessageQueue(msqid_ds &queue) {
   int identifier = msgget(IPC_PRIVATE, IPC_CREAT);
 
