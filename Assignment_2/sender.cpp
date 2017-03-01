@@ -16,20 +16,17 @@ typedef struct message {
 } message;
 
 int main(int argc, char *argv[]) {
-  string input;
   if (argc != 2) {
     return 1;
   }
 
   int messageQueueID = atoi(argv[1]);
+  message newMsg;
+  newMsg.mtype = REGULAR;
 
   cout << "Hi, I'm the sender (PID: " << getpid() << "), ";
   cout << "Let me send something : ";
-  cin.getline(input);
-
-  message newMsg;
-  newMsg.mtype = REGULAR;
-  strncpy(newMsg.mtext, input.c_str(), MSGSIZE);
+  cin.getline(newMsg.mtext, MSGSIZE);
 
   msgsnd(messageQueueID, &newMsg, sizeof(newMsg.mtext), 0);
 
