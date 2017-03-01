@@ -9,13 +9,13 @@ Child::Child(string binaryName) {
   _pid = fork();
 
   if (_pid == -1) {
-    throw 'Failed to fork';
+    throw "Failed to fork";
   }
 
   if (this->isParent() == false) {
-    string pathToBinary('./' + binaryName);
+    string pathToBinary("./" + binaryName);
     execv(pathToBinary.c_str(), 0);
-    throw 'Failed to exec';
+    throw "Failed to exec";
   }
 }
 

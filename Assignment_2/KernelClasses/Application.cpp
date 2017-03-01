@@ -9,6 +9,6 @@ Application::Application() : messages(IPC_PRIVATE, true) {
 Application::~Application() {}
 
 void Application::execute() {
-  Child sender('sender');
-  Child receiver('receiver');
+  Child sender("sender");
+  Child receiver("receiver");
 }
