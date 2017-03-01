@@ -41,6 +41,7 @@ int instantiateChild(string binaryName) {
     throw "Failed to exec";
   }
 
+  cout << "Created a " << binaryName << " with PID (" << pid << ")" << endl;
   return pid;
 }
 
