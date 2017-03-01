@@ -20,7 +20,7 @@ int createMessageQueue(msqid_ds &queue) {
   return identifier;
 }
 
-void deleteMessageQueue(identifier, &queue) {
+void deleteMessageQueue(int identifier, msqid_ds &queue) {
   msgctl(identifier, IPC_RMID, queue);
 }
 
