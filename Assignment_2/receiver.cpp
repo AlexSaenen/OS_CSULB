@@ -30,6 +30,8 @@ int main(int argc, char *argv[]) {
   newMsg.mtext[ret] = 0;
 
   // cout << "I'm the receiver (PID: " << getpid() << "), and got a new message:" << endl;
+  cout << ret << endl;
+  cout << newMsg.mtext[0] << endl;
   cout << "text " << newMsg.mtext << " end text" << endl;
   // cout << "wtf is going onnnnnnnn" << endl;
   //
