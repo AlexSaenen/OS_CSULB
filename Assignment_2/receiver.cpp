@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
   msgrcv(messageQueueID, &newMsg, MAX_MESSAGE_SIZE, REGULAR, MSG_NOERROR);
 
   cout << "I'm the receiver (PID: " << getpid() << "), and got a new message:" << endl;
-  cout << newMsg.mtext << endl;
+  cout << "text " << newMsg.mtext << " end text" << endl;
 
   delete [] newMsg.mtext;
 
