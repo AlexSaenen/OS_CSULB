@@ -16,7 +16,7 @@ typedef struct message {
 
 int main(int argc, char *argv[]) {
   string input;
-  int messageQueueID = argv[1];
+  int messageQueueID = atoi(argv[1]);
 
   cout << "Hi, I'm the sender (PID: " << getpid() << "), ";
   cout << "Let me send something : ";
