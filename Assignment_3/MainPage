@@ -1,0 +1,19 @@
+CECS 326
+Assignment 2
+3-2-2017
+Alexander Saenen
+alexander.saenen@epitech.eu
+
+In this assignment you can find 4 files, creating 4 programs
+In the use_msgQ.cpp we create a program that spawns 2 childs, the second child sends
+a fake message that is never read by the first child, then sends a greeting message to
+the first child, the first displays the message and proceeds to add some content to the message
+before sending the message back to the second child and exiting. The second child receives the message,
+displays it and exits. The parent process deletes the queue it created for the 2 children.
+
+The master.cpp creates a program that spawns two children who execute the binaries sender and receiver.
+Those binaries are made from the sender.cpp and receiver.cpp code. The master creates a message queue
+and spawns the children, each child replaces it's execution code by the code from the assigned binary.
+The master waits for the 2 children to finish before deleting the queue and exiting. The sender program
+sends a message to the queue and exits, the receiver waits for the message to appear in the queue and
+displays it before exiting.
