@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
   void	*shm_ptr;
   char	ascshmid[10], ascsemid[10], pname[14];
 
+  // initializing the semaphore to 1 and setting it as shareable between processes
   if (sem_init(&(myclass.semaphore), 1, 1) < 0) {
     perror("Failed to create semaphore");
   }
@@ -94,6 +95,7 @@ void wait_and_wrap_up(int child[], void *shm_ptr, int shmid) {
   cout << "Parent removing shm" << endl;
   shmdt (shm_ptr); // detach shared memory section so the pointer no longer points to that adress
   shmctl (shmid, IPC_RMID, (struct shmid_ds *) 0); // delete our shared memory section
+  sem_destroy(&(myclass.semaphore)); // destroy the semaphore
   exit (0);
 }
 

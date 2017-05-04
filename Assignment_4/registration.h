@@ -10,5 +10,5 @@ struct CLASS { // data structure that will be shared between the children
   char date[7];
   char title[50];
   int seats_left;
-  sem_t semaphore;
+  sem_t semaphore; // added a semaphore variable in the data structure
 };

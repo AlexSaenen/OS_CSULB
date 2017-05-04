@@ -47,11 +47,9 @@ void sell_seats() {
 
   srand ( (unsigned) getpid() ); // generate a seed for random routine using our pid
   while ( !all_out) { /* loop to sell all seats */
-    if (sem_wait(&(class_ptr->semaphore)) == -1) {
+    if (sem_wait(&(class_ptr->semaphore)) == -1) { // acquire access to the CS with semaphore
       rpterror ("sem_wait failed");
     }
-
-    printf("Entered\n");
 
     if (class_ptr->seats_left > 0) { // if there are seats left in shared data structure
       sleep ( (unsigned)rand()%5 + 1); // wait a random amount of time between 1 and 5 seconds
@@ -65,10 +63,9 @@ void sell_seats() {
       cout << pname << " sees no seats left" << endl;
     }
 
-    if (sem_post(&(class_ptr->semaphore)) == -1) {
+    if (sem_post(&(class_ptr->semaphore)) == -1) { // release access to the CS with semaphore
       rpterror ("sem_post failed");
     }
-    printf("Left\n");
 
     sleep ( (unsigned)rand()%10 + 1); // wait a random amount of time between 1 and 10 seconds
   }
